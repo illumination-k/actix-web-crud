@@ -1,0 +1,17 @@
+version: "3.0"
+
+services:
+  db:
+    image: postgres:11.7
+    container_name: actix_web_crud
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=disel_demo
+
+volumes:
+  postgres_data: {}
