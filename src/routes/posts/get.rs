@@ -3,7 +3,6 @@ use crate::models::Post;
 use crate::schema::posts;
 use actix_web::{get, web, HttpResponse};
 use diesel::prelude::*;
-use diesel::RunQueryDsl;
 
 #[get("/posts")]
 pub async fn index(pool: web::Data<Pool>) -> HttpResponse {
