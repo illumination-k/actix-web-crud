@@ -23,6 +23,10 @@ async fn main() -> Result<()> {
             .data(pool.clone())
             .service(hello)
             .service(routes::posts::get::index)
+            .service(routes::posts::post::index)
+            .service(routes::posts::publish::index)
+            .service(routes::posts::delete::index)
+            .service(routes::posts::get::publish)
     })
     .bind("127.0.0.1:8080")?
     .run()

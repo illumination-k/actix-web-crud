@@ -1,11 +1,12 @@
 use anyhow::Result;
 use diesel::pg::PgConnection;
-use diesel::prelude::*;
 use diesel::r2d2::{self, ConnectionManager};
 
+use ::r2d2::PooledConnection;
 use dotenv::dotenv;
 
 pub type Pool = r2d2::Pool<ConnectionManager<PgConnection>>;
+pub type PooledPgConnection = PooledConnection<ConnectionManager<PgConnection>>;
 
 fn database_uri() -> Result<String> {
     dotenv().ok();
